@@ -1,0 +1,44 @@
+:root {
+    --grad: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --white: hsl(255, 100%, 100%);
+    --blue: hsl(220, 98%, 61%);
+    --light-gray: hsl(0, 0%, 98%);
+    --light-graylish-blue-100: hsl(235, 32%, 92%);
+    --light-graylish-blue-300: hsl(240, 9%, 61%);
+    --dark-graylish-blue-100: hsl(240, 9%, 61%);
+    --dark-graylish-blue-400: hsl(235, 19%, 35%);
+    --dark-blue: hsl(235, 21%, 11%);
+    --dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-graylish-blue-200: hsl(234, 39%, 85%);
+    --dark-graylish-blue-200: hsl(233, 11%, 52%);
+    --dark-graylish-blue-300:hsl(233, 14%, 35%);
+    --dark-graylish-blue-400: hsl(237, 14%, 26%);
+}
+
+@font-face {
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    src: url("/src/assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    src: url("/src/assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
+
+[data-theme="light"] {
+    --bg-image: url("/src/assets/images/bg-mobile-light.jpg");
+    --toggler-icon: url("/src/assets/svg/icon-moon.svg");
+    --bg-color: var(--light-gray);
+    --color: var(--dark-blue);
+    --bg-content-color: var(--white);
+}
+
+[data-theme="dark"] {
+    --bg-image: url("/src/assets/images/bg-mobile-dark.jpg");
+    --toggler-icon: url("/src/assets/svg/icon-sun.svg");
+    --bg-color: var(--dark-blue);
+    --color: var(--light-graylish-blue-200);
+    --bg-content-color: var(--dark-desaturated-blue);
+}
