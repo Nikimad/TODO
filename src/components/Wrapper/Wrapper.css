@@ -1,0 +1,9 @@
+.todo-app__wrapper {
+    color: var(--color);
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: var(--bg-color);
+    height: 100vh;
+    height: 100svh;
+}
