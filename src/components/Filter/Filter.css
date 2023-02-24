@@ -1,0 +1,13 @@
+.todo-app__filter {
+    text-transform: capitalize;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.todo-app__filter:disabled {
+    color: var(--blue);
+}
+
+.todo-app__filter:not(:disabled):hover {
+    color: var(--hover-color);
+}
