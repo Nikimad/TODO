@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import selectTheme from "../../features/theme/selectors/selectTheme";
+import { selectTheme } from "../../features/theme/selectors/selectors";
 import Wrapper from "./Wrapper";
 
 const WrapperContainer = ({ children }) => {
