@@ -3,6 +3,10 @@
   text-decoration: line-through;
 }
 
+.todo-app__list-item[data-completed="true"] .todo-app__list-item__input {
+  color: var(--color);
+}
+
 .todo-app__list-item[data-completed="true"] .todo-app__list-item__toggler {
   background: url("/src/assets/svg/icon-check.svg"), var(--grad) border-box;
   background-repeat: no-repeat;
