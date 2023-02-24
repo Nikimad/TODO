@@ -1,4 +1,5 @@
 import { reciveTheme } from "../features/theme/themeSlice";
+import { reciveListState } from "../features/list/listSlice";
 
 const localStorageMiddleware = (store) => (next) => (action) => {
   if (action.type === "mount") {
@@ -6,9 +7,10 @@ const localStorageMiddleware = (store) => (next) => (action) => {
 
     if (!state) return next(action);
 
-    const { theme } = state;
+    const { theme, list } = state;
 
     store.dispatch(reciveTheme(theme));
+    store.dispatch(reciveListState(list));
   }
   if (action.type === 'beforeunload') {
     const stringfyState = JSON.stringify(store.getState());
