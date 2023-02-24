@@ -13,7 +13,9 @@ const HeaderContainer = () => {
     e.preventDefault();
     const normolizedValue = value.trim();
     if (normolizedValue === "") return;
-    dispatch(addItem(normolizedValue));
+    setTimeout(() => {
+      dispatch(addItem(normolizedValue));
+    }, 100);
     setValue("");
   };
 

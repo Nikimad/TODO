@@ -2,7 +2,7 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
     padding-block: 45px 0;
 }
 
@@ -39,6 +39,7 @@
     width: 1.5em;
     height: 1.5em;
     cursor: pointer;
+    transition: var(--transition);
     margin-right: 1em;
 }
 
