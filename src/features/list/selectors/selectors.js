@@ -13,11 +13,11 @@ export const selectActiveCounter = (state) => selectActive(state).length;
 export const selectCompletedCounter = (state) => selectCompleted(state).length;
 
 export const selectVisibleItems = (state) => {
-    const filter = selectFilter(state);
-    const getItemsMap = {
-        "all": () => selectAll(state),
-        "active": () => selectActive(state),
-        "completed": () => selectCompleted(state),
-    };
-    return getItemsMap[filter]();
+  const filter = selectFilter(state);
+  const getItemsMap = {
+    all: () => selectAll(state),
+    active: () => selectActive(state),
+    completed: () => selectCompleted(state),
+  };
+  return getItemsMap[filter]();
 };

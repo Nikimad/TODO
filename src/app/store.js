@@ -9,6 +9,5 @@ export const store = configureStore({
     list,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(localStorageMiddleware),
+    getDefaultMiddleware().concat(localStorageMiddleware),
 });

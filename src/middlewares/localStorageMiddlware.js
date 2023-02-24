@@ -12,10 +12,10 @@ const localStorageMiddleware = (store) => (next) => (action) => {
     store.dispatch(reciveTheme(theme));
     store.dispatch(reciveListState(list));
   }
-  if (action.type === 'beforeunload') {
+  if (action.type === "beforeunload") {
     const stringfyState = JSON.stringify(store.getState());
 
-    localStorage.setItem('state', stringfyState);
+    localStorage.setItem("state", stringfyState);
   }
 
   return next(action);
