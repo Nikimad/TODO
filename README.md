@@ -8,4 +8,6 @@ Todo list app, write, do, achieve
 
 * LocalStorage available
 
+* Dark and Light theme
+
 * Layout reference: [TODO-app challenge](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
