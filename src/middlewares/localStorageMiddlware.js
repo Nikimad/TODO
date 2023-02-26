@@ -3,19 +3,27 @@ import { reciveListState } from "../features/list/listSlice";
 
 const localStorageMiddleware = (store) => (next) => (action) => {
   if (action.type === "mount") {
-    const state = JSON.parse(localStorage.getItem("state"));
+    try {
+      const state = JSON.parse(localStorage.getItem("state"));
 
-    if (!state) return next(action);
+      if (!state) return next(action);
 
-    const { theme, list } = state;
+      const { theme, list } = state;
 
-    store.dispatch(reciveTheme(theme));
-    store.dispatch(reciveListState(list));
+      store.dispatch(reciveTheme(theme));
+      store.dispatch(reciveListState(list));
+    } catch {
+      return next(action);
+    }
   }
   if (action.type === "beforeunload") {
-    const stringfyState = JSON.stringify(store.getState());
+    try {
+      const stringfyState = JSON.stringify(store.getState());
 
-    localStorage.setItem("state", stringfyState);
+      localStorage.setItem("state", stringfyState);
+    } catch {
+      return next(action);
+    }
   }
 
   return next(action);
