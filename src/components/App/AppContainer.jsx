@@ -1,15 +1,13 @@
-import { createAction } from "@reduxjs/toolkit";
 import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { mountAction, beforeUnload } from "../../actions/actions";
 import App from "./App";
 
 const AppContainer = () => {
   const dispatch = useDispatch();
-  const mountAction = createAction("mount");
-  const beforeUnload = createAction("beforeunload");
   const handleBeforeUnload = useCallback(
     () => dispatch(beforeUnload()),
-    [dispatch, beforeUnload]
+    [dispatch]
   );
 
   useEffect(() => {
@@ -19,7 +17,7 @@ const AppContainer = () => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [dispatch, mountAction, handleBeforeUnload]);
+  }, [dispatch, handleBeforeUnload]);
 
   return <App />;
 };
