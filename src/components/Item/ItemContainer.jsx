@@ -11,10 +11,12 @@ import Item from "./Item";
 const ItemContainer = ({ item }) => {
   const [value, setValue] = useState(item.text);
   const dispatch = useDispatch();
+
   const handleChange = (e) => setValue(e.target.value);
   const handleToggle = () => dispatch(toggleItemCompletedStatus(item.id));
   const handdleDelete = () => dispatch(deleteItem(item.id));
   const handleEdit = () => dispatch(toggleItemIsEditingStatus(item.id));
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!/\S/gm.test(value)) {

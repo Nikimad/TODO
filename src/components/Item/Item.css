@@ -46,15 +46,13 @@
 }
 
 .todo-app__list-item:hover .todo-app__list-item__delete {
-  background-image: url("/src/assets/svg/icon-cross.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+  visibility: visible;
 }
 
 .todo-app__list-item__delete {
+  visibility: hidden;
   width: 1em;
   height: 1em;
-  transition: var(--transition);
 }
 
 @media screen and (min-width: 768px) {

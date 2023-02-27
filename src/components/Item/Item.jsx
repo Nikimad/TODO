@@ -1,4 +1,5 @@
 import "./Item.css";
+import { ReactComponent as Cross } from "../../assets/svg/icon-cross.svg";
 
 const Item = ({
   onToggle,
@@ -34,7 +35,9 @@ const Item = ({
         </label>
       </form>
     )}
-    <button className="todo-app__list-item__delete" onClick={onDelete} />
+    <button className="todo-app__list-item__delete" onClick={onDelete}>
+      <Cross />
+    </button>
   </li>
 );
 
