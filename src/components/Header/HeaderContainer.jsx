@@ -21,7 +21,6 @@ const HeaderContainer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!/\S/gm.test(value)) {
-      console.log(e);
       if (e.type === "submit") dispatch(toggleAll());
       return;
     }
