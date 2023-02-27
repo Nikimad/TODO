@@ -26,7 +26,9 @@
 
 .todo-app__list-item__text {
   word-break: break-all;
+  white-space: pre-wrap;
   text-align: left;
+  overflow: hidden;
   margin-bottom: var(--font-corrector);
 }
 

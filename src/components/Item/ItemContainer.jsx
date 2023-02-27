@@ -17,12 +17,11 @@ const ItemContainer = ({ item }) => {
   const handleEdit = () => dispatch(toggleItemIsEditingStatus(item.id));
   const handleSubmit = (e) => {
     e.preventDefault();
-    const normolizedValue = value.trim();
-    if (normolizedValue === "") {
+    if (!/\S/gm.test(value)) {
       handdleDelete();
       return;
     }
-    dispatch(updateItemText({ id: item.id, text: normolizedValue }));
+    dispatch(updateItemText({ id: item.id, text: value }));
     handleEdit();
   };
 

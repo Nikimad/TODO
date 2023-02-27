@@ -11,11 +11,8 @@ const HeaderContainer = () => {
   const handleChange = (e) => setValue(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const normolizedValue = value.trim();
-    if (normolizedValue === "") return;
-    setTimeout(() => {
-      dispatch(addItem(normolizedValue));
-    }, 100);
+    if (!/\S/gm.test(value)) return;
+    setTimeout(() =>  dispatch(addItem(value)), 100);
     setValue("");
   };
 
