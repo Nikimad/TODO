@@ -57,6 +57,29 @@ const listSlice = createSlice({
     deleteCompleted(state) {
       state.items = state.items.filter((item) => !item.completed);
     },
+    toggleAll(state) {
+      const itemsCount = state.items.length;
+      const completedCount = state.items.reduce((counter, task) => {
+        counter += task.completed ? 1 : 0;
+        return counter;
+      }, 0);
+
+      if (itemsCount !== completedCount) {
+        state.items = state.items.map((item) => {
+          if (!item.completed) {
+            item.completed = !item.completed;
+          }
+          return item;
+        });
+      }
+
+      if (itemsCount === completedCount) {
+        state.items = state.items.map((item) => {
+          item.completed = !item.completed;
+          return item;
+        });
+      }
+    },
   },
 });
 
@@ -69,6 +92,7 @@ export const {
   toggleItemCompletedStatus,
   toggleItemIsEditingStatus,
   updateItemText,
+  toggleAll,
 } = listSlice.actions;
 
 export default listSlice.reducer;

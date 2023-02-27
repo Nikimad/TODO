@@ -8,6 +8,8 @@ export const selectActive = (state) =>
 export const selectCompleted = (state) =>
   state.list.items.filter((item) => item.completed);
 
+export const selectAllCounter = (state) => selectAll(state).length;
+
 export const selectActiveCounter = (state) => selectActive(state).length;
 
 export const selectCompletedCounter = (state) => selectCompleted(state).length;
@@ -21,3 +23,5 @@ export const selectVisibleItems = (state) => {
   };
   return getItemsMap[filter]();
 };
+
+export const selectVisibleItemsCounter = (state) => selectVisibleItems(state).length;
