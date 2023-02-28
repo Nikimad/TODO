@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilter } from "../../features/list/selectors/selectors";
-import { setFilter } from "../../features/list/listSlice";
+import { selectFilter } from "../../models/filter/selectors";
+import { setFilter } from "../../models/filter/actions";
 import Filter from "./Filter";
 
 const FilterContainer = ({ value }) => {

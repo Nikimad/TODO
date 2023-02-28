@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteCompleted } from "../../features/list/listSlice";
+import { deleteCompleted } from "../../models/list/actions";
+import { selectFilter } from "../../models/filter/selectors";
 import {
   selectActiveCounter,
   selectCompletedCounter,
-  selectFilter,
   selectVisibleItems,
   selectVisibleItemsCounter,
-} from "../../features/list/selectors/selectors";
+} from "../../models/list/selectors";
 import Main from "./Main";
 
 const MainContainer = () => {

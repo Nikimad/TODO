@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { toggleTheme } from "../../features/theme/themeSlice";
-import { addItem, toggleAll } from "../../features/list/listSlice";
+import { toggleTheme } from "../../models/theme/actions";
+import { addItem, toggleAll } from "../../models/list/actions";
 import {
   selectActiveCounter,
   selectCompletedCounter,
-} from "../../features/list/selectors/selectors";
+} from "../../models/list/selectors";
 import Header from "./Header";
 
 const HeaderContainer = () => {
@@ -22,10 +22,12 @@ const HeaderContainer = () => {
     e.preventDefault();
     if (!/\S/gm.test(value)) {
       if (e.type === "submit") dispatch(toggleAll());
+      e.stopPropagation();
       return;
     }
-    setTimeout(() => dispatch(addItem(value)), 100);
-    setValue("");
+    setTimeout(() => {
+      dispatch(addItem(value));
+      setValue("");}, 100);
   };
 
   return (
