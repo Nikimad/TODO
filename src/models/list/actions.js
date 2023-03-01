@@ -1,8 +1,6 @@
 import customCreateAction from "../../utils/customCreateAction";
 import { actionsMap } from "./constants";
 
-export const reciveList = customCreateAction(actionsMap.recive);
-
 export const addItem = customCreateAction(actionsMap.add);
 
 export const deleteItem = customCreateAction(actionsMap.delete);

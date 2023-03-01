@@ -1,5 +1,4 @@
 import { actionsMap } from "./constants";
-import recive from "../../utils/recive";
 
 const initialState = {
   currentTheme: "dark",
@@ -7,8 +6,6 @@ const initialState = {
 
 const themeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionsMap.recive:
-      return recive(state, action.payload);
     case actionsMap.toggle:
       return {
         ...state,
