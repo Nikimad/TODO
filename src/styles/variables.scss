@@ -1,0 +1,16 @@
+@use "./themes.scss" as *;
+
+$bg-img: var(--bg-img);
+$toggler-icon: var(--toggler-icon);
+$fs-xxl: 2.2em;
+$fs-xl: 18px;
+$fs-l: 16px;
+$fs-m: 14px;
+$fs-s: 12px;
+$lh: 1.2;
+$ff: "Josefin Sans";
+$fw-reg: 400;
+$fw-bold: 700;
+$bp: 768px;
+$transition: 0.3s;
+$br: 5px;

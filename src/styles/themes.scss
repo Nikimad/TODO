@@ -1,0 +1,56 @@
+[data-theme] {
+    --img-bg-desktop-dark: url("/assets/images/bg-desktop-dark.jpg");
+    --img-bg-desktop-light: url("/assets/images/bg-desktop-light.jpg");
+    --img-bg-mobile-dark: url("/assets/images/bg-mobile-dark.jpg");
+    --img-bg-mobile-light: url("/assets/images/bg-mobile-light.jpg");
+    --svg-icon-dark: url("/assets/svg/icon-sun.svg");
+    --svg-icon-light: url("/assets/svg/icon-moon.svg");
+    --bg-color-dark: hsl(235, 21%, 11%);
+    --bg-color-light: hsl(0, 0%, 98%);
+    --color-dark: hsl(234, 39%, 85%);
+    --color-light: hsl(235, 21%, 11%);
+    --hover-dark: hsl(234, 39%, 85%);
+    --hover-light: hsl(235, 19%, 35%);
+    --bg-content-dark: hsl(235, 24%, 19%);
+    --bg-content-light: hsl(255, 100%, 100%);
+    --border-color-dark: hsl(233, 14%, 35%);
+    --border-color-light: hsl(235, 32%, 92%);
+    --completed-color-dark: hsl(233, 11%, 52%);
+    --completed-color-light: hsl(240, 9%, 61%);
+    --shadow-color-dark: hsla(237, 14%, 26%, 0.3);
+    --shadow-color-light: hsla(240, 9%, 61%, 0.3);
+}
+
+[data-theme="dark"] {
+    --bg-img: var(--img-bg-mobile-dark);
+    --toggler-icon: var(--svg-icon-dark);
+    --bg-color: var(--bg-color-dark);
+    --bg-content: var(--bg-content-dark);
+    --color: var(--color-dark);
+    --hover: var(--hover-dark);
+    --border-color: var(--border-color-dark);
+    --completed-color: var(--completed-color-dark);
+    --shadow-color: var(--shadow-color-dark);
+}
+
+[data-theme="light"] {
+    --bg-img: var(--img-bg-mobile-light);
+    --toggler-icon: var(--svg-icon-light);
+    --bg-color: var(--bg-color-light);
+    --bg-content: var(--bg-content-light);
+    --color: var(--color-light);
+    --hover: var(--hover-light);
+    --border-color: var(--border-color-light);
+    --completed-color: var(--completed-color-light);
+    --shadow-color: var(--shadow-color-light);
+}
+
+@media screen and (min-width: 768px) {
+    [data-theme="dark"] {
+        --bg-img: var(--img-bg-desktop-dark);
+    }
+
+    [data-theme="light"] {
+        --bg-img: var(--img-bg-desktop-light);
+    }
+}

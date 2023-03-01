@@ -1,0 +1,14 @@
+@use "./themes.scss" as *;
+
+$white: hsl(0, 0%, 100%);
+$blue: hsl(220, 97%, 61%);
+$scroll-color: hsla(0, 0%, 44%, 0.75);
+$static-color: var(--completed-color-light);
+$bg-color: var(--bg-color);
+$bg-content: var(--bg-content);
+$color: var(--color);
+$hover: var(--hover);
+$border-color: var(--border-color);
+$completed-color: var(--completed-color);
+$shadow-color: var(--shadow-color);
+$grad: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));

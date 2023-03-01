@@ -1,0 +1,13 @@
+@use "./variables.scss" as *;
+
+@font-face {
+    font-family: $ff;
+    font-weight: $fw-reg;
+    src: url("/assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: $ff;
+    font-weight: $fw-bold;
+    src: url("/assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+}
