@@ -7,6 +7,4 @@ const state = loadState();
 
 export const store = createStore(rootReducer, state);
 
-store.subscribe(throttle(() => {
-  saveState(store.getState());
-}), 1000);
+store.subscribe(throttle(() => saveState(store.getState()), 1000, { leading: false }));
