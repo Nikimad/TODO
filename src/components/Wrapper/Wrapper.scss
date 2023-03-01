@@ -1,0 +1,12 @@
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/colors.scss" as *;
+
+.todo-app__wrapper {
+    color: $color;
+    background-image: $bg-img;
+    background-color: $bg-color;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 100vh;
+    height: 100svh;
+}

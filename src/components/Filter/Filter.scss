@@ -1,0 +1,17 @@
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/colors.scss" as *;
+
+.todo-app__filter {
+    font-size: $fs-l;
+    color: $static-color;
+    text-transform: capitalize;
+    transition: $transition;
+
+    &:disabled {
+        color: $blue;
+    }
+
+    &:not(:disabled):hover {
+        color: $hover;
+    }
+}

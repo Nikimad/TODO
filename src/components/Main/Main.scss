@@ -1,0 +1,93 @@
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/colors.scss" as *;
+
+.todo-app {
+    &__main {
+        padding: 1rem;
+
+        &-controls {
+            display: flex;
+            justify-content: space-between;
+            color: $static-color;
+            border-radius: 0 0 $br $br;
+            padding: 1.5em;
+        }
+    }
+
+    &__main-controls,
+    &__list,
+    &__list-plug {
+        background-color: $bg-content;
+    }
+    
+    &__list {
+        &,
+        &-plug {
+            height: 40vh;
+            border-radius: $br $br 0 0;
+            box-shadow: 0 60px 15px 0 $shadow-color;
+            overflow: auto;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-plug {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $fs-m;
+            color: $static-color;
+        }
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            margin-top: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient($scroll-color, transparent);
+            border-radius: 20px;
+        }
+    }
+
+    &__counter {
+        margin: 0;
+    }
+
+    &__cleaner {
+        z-index: 1;
+        transition: $transition;
+
+        &:disabled {
+            display: none;
+        }
+
+        &:hover {
+            color: $hover;
+        }
+    }
+}
+
+@media screen and (min-width: $bp) {
+    .todo-app {
+        &__main {
+            padding-block: 25px;
+
+            &-controls {
+                font-size: $fs-m;
+                padding: 1.5em 1.5em 1em;
+            }
+        }
+
+        &__list {
+            &,
+            &-plug {
+                height: 44vh;
+            }
+        }
+    }
+}

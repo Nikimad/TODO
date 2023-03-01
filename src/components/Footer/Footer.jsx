@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "./Footer.scss";
 import Filter from "../Filter";
 
 const Footer = () => (

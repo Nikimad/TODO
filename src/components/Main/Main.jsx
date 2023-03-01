@@ -1,4 +1,4 @@
-import "./Main.css";
+import "./Main.scss";
 import Item from "../Item";
 
 const Main = ({

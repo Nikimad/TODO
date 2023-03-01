@@ -1,4 +1,4 @@
-import "./Header.css";
+import "./Header.scss";
 
 const Header = ({ onToggle, onSubmit, onClick, onBlur, onChange, value, isCompleted }) => (
   <header className="container todo-app__header">

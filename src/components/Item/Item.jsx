@@ -1,4 +1,4 @@
-import "./Item.css";
+import "./Item.scss";
 import { ReactComponent as Cross } from "../../assets/svg/icon-cross.svg";
 
 const Item = ({

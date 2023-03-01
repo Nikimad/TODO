@@ -1,0 +1,78 @@
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/colors.scss" as *;
+@use "/src/styles/mixins.scss" as *;
+
+.todo-app {
+    &__list-item {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: min-content 1fr min-content;
+        align-items: center;
+        gap: 1em;
+        border-bottom: 1px solid $border-color;
+        padding: 1.25em 1.5em;
+
+        &__toggler {
+            border-radius: 100%;
+            border: 1px solid $border-color;
+            width: 1.75em;
+            height: 1.75em;
+        }
+
+        &__text {
+            word-break: break-all;
+            white-space: pre-wrap;
+            text-align: left;
+            overflow: hidden;
+            @include font-corrector;
+        }
+
+        &__input {
+            &,
+            &-label {
+                width: 100%;
+            }
+        }
+
+        &__delete {
+            visibility: hidden;
+            width: 1em;
+            height: 1em;
+        }
+
+        &:hover &__delete {
+            visibility: visible;
+        }
+
+        &[data-completed="true"] {
+            color: $completed-color;
+            text-decoration: line-through;
+        }
+
+        &[data-completed="true"] & {
+            &__input {
+                color: $color;
+            }
+
+            &__toggler {
+                background: url("/assets/svg/icon-check.svg"), $grad border-box;
+                background-repeat: no-repeat;
+                background-position: center;
+                border: 1px solid transparent;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $bp) {
+    .todo-app {
+        &__list-item {
+            padding: 1em 1.3em;
+
+            &__toggler {
+                width: 1.5em;
+                height: 1.5em;
+            }
+        }
+    }
+}
