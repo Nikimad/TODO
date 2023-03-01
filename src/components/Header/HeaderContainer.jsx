@@ -7,6 +7,7 @@ import {
   selectCompletedCounter,
 } from "../../models/list/selectors";
 import Header from "./Header";
+import throttle from "lodash/throttle";
 
 const HeaderContainer = () => {
   const [value, setValue] = useState("");
@@ -20,20 +21,22 @@ const HeaderContainer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!/\S/gm.test(value)) {
-      if (e.type === "submit") dispatch(toggleAll());
-      e.stopPropagation();
-      return;
-    }
-    setTimeout(() => {
-      dispatch(addItem(value));
-      setValue("");}, 100);
   };
+
+  const handleClick = (e) => {
+    if (!/\S/gm.test(value) && e.type === "blur") return;
+    if (!/\S/gm.test(value)) return dispatch(toggleAll());
+    dispatch(addItem(value));
+    setValue("");
+  };
+
+  const throttledHandleClick = throttle(handleClick, 100, { leading: false });
 
   return (
     <Header
       onToggle={handleToggle}
       onSubmit={handleSubmit}
+      onClick={throttledHandleClick}
       onChange={handleChange}
       value={value}
       isCompleted={completedCount > 0 && activeCount === 0}
