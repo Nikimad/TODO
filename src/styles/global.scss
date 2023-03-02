@@ -1,5 +1,7 @@
 @use "./variables.scss" as *;
+@use "./colors.scss" as *;
 @use "./fonts.scss" as *;
+@use "./themes.scss" as *;
 
 * {
     box-sizing: border-box;
@@ -30,6 +32,11 @@ button:not(:disabled) {
     width: min(590px, 100%);
     padding-inline: 25px;
     margin: 0 auto;
+}
+
+.border-grad-hover:hover {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--bg-content), var(--bg-content)) padding-box, $grad border-box;
 }
 
 @media screen and (min-width: $bp) {
