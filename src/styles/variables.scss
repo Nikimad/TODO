@@ -1,5 +1,9 @@
-@use "./themes.scss" as *;
-
+$img-bg-desktop-dark: url("/assets/images/bg-desktop-dark.jpg");
+$img-bg-desktop-light: url("/assets/images/bg-desktop-light.jpg");
+$img-bg-mobile-dark: url("/assets/images/bg-mobile-dark.jpg");
+$img-bg-mobile-light: url("/assets/images/bg-mobile-light.jpg");
+$svg-icon-dark: url("/assets/svg/icon-sun.svg");
+$svg-icon-light: url("/assets/svg/icon-moon.svg");
 $bg-img: var(--bg-img);
 $toggler-icon: var(--toggler-icon);
 $fs-xxl: 2.2em;
