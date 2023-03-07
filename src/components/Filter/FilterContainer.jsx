@@ -6,10 +6,10 @@ import Filter from "./Filter";
 const FilterContainer = ({ value }) => {
   const currentFilter = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const handleClick = () => dispatch(setFilter(value));
+  const handleSetFilter = () => dispatch(setFilter(value));
 
   return (
-    <Filter onClick={handleClick} isDisabled={currentFilter === value}>
+    <Filter setFilter={handleSetFilter} isDisabled={currentFilter === value}>
       {value}
     </Filter>
   );

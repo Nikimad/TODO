@@ -14,13 +14,13 @@ const ItemContainer = ({ item }) => {
 
   const handleChange = (e) => setValue(e.target.value);
   const handleToggle = () => dispatch(toggleItem(item.id));
-  const handdleDelete = () => dispatch(deleteItem(item.id));
+  const handleDelete = () => dispatch(deleteItem(item.id));
   const handleEdit = () => dispatch(editItem(item.id));
   
-  const handleSubmit = (e) => {
+  const handleSubmitItem = (e) => {
     e.preventDefault();
     if (!/\S/gm.test(value)) {
-      handdleDelete();
+      handleDelete();
       return;
     }
     dispatch(updateItem({ id: item.id, text: value }));
@@ -31,10 +31,10 @@ const ItemContainer = ({ item }) => {
     <Item
       onToggle={handleToggle}
       onEdit={handleEdit}
-      onDelete={handdleDelete}
+      onDelete={handleDelete}
       onChange={handleChange}
       value={value}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmitItem}
       {...item}
     />
   );

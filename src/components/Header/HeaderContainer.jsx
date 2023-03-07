@@ -23,20 +23,20 @@ const HeaderContainer = () => {
     e.preventDefault();
   };
 
-  const handleClick = (e) => {
+  const handleAddOrToggleAll = (e) => {
     if (!/\S/gm.test(value) && e.type === "blur") return;
     if (!/\S/gm.test(value)) return dispatch(toggleAll());
     dispatch(addItem(value));
     setValue("");
   };
 
-  const throttledHandleClick = throttle(handleClick, 100, { leading: false });
+  const throttledhandleAddOrToggleAll = throttle(handleAddOrToggleAll, 100, { leading: false });
 
   return (
     <Header
       onToggle={handleToggle}
       onSubmit={handleSubmit}
-      onClick={throttledHandleClick}
+      onClick={throttledhandleAddOrToggleAll}
       onChange={handleChange}
       value={value}
       isCompleted={completedCount > 0 && activeCount === 0}
