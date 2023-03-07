@@ -1,6 +1,6 @@
 import "./Header.scss";
 
-const Header = ({ onToggle, onSubmit, onClick, onBlur, onChange, value, isCompleted }) => (
+const Header = ({ onToggle, onSubmit, onClick, onChange, value, isCompleted }) => (
   <header className="container todo-app__header">
     <h1 className="todo-app__heading">Todo</h1>
     <button className="todo-app__toggler" onClick={onToggle} />
