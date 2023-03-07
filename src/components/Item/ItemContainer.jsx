@@ -7,6 +7,7 @@ import {
   editItem,
 } from "../../models/list/actions";
 import Item from "./Item";
+import { anyNonWhitespace } from "../../utils/regexps";
 
 const ItemContainer = ({ item }) => {
   const [value, setValue] = useState(item.text);
@@ -19,7 +20,7 @@ const ItemContainer = ({ item }) => {
   
   const handleSubmitItem = (e) => {
     e.preventDefault();
-    if (!/\S/gm.test(value)) {
+    if (!anyNonWhitespace.test(value)) {
       handleDelete();
       return;
     }

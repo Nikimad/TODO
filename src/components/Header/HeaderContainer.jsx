@@ -7,7 +7,9 @@ import {
   selectActiveCounter,
   selectCompletedCounter,
 } from "../../models/list/selectors";
+import { anyNonWhitespace } from "../../utils/regexps";
 import Header from "./Header";
+
 import throttle from "lodash/throttle";
 
 const HeaderContainer = () => {
@@ -28,8 +30,8 @@ const HeaderContainer = () => {
   const handleAddItem = useAction(addItem(value));
 
   const handleAddOrToggleAll = (e) => {
-    if (!/\S/gm.test(value) && e.type === "blur") return;
-    if (!/\S/gm.test(value)) return handleToggleAll();
+    if (!anyNonWhitespace.test(value) && e.type === "blur") return;
+    if (!anyNonWhitespace.test(value)) return handleToggleAll();
     handleAddItem();
     setValue("");
   };
