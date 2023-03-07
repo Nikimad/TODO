@@ -13,7 +13,7 @@ import Main from "./Main";
 const MainContainer = () => {
   const currentFilter = useSelector(selectFilter);
   const items = useSelector(selectVisibleItems);
-  const visibleCount = useSelector(selectVisibleItemsCounter)
+  const visibleCount = useSelector(selectVisibleItemsCounter);
   const activeCount = useSelector(selectActiveCounter);
   const completedCount = useSelector(selectCompletedCounter);
 
