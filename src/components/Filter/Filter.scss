@@ -2,7 +2,7 @@
 @use "/src/styles/colors.scss" as *;
 
 .todo-app__filter {
-    font-size: $fs-l;
+    font-size: $fs-m;
     color: $completed-color-light;
     text-transform: capitalize;
     transition: $transition;
@@ -13,5 +13,11 @@
 
     &:not(:disabled):hover {
         color: $hover;
+    }
+}
+
+@media screen and (min-width: $bp) {
+    .todo-app__filter {
+        font-size: $fs-l;
     }
 }
