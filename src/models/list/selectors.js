@@ -1,27 +1,58 @@
+import { createSelector } from "@reduxjs/toolkit";
 import { selectFilter } from "../filter/selectors";
 
-export const selectAll = (state) => state.list.items;
+const rootSelector = createSelector(
+  (state) => state,
+  (state) => state.list,
+);
 
-export const selectActive = (state) =>
-  state.list.items.filter((item) => !item.completed);
+export const selectAll = createSelector(
+  rootSelector,
+  (listState) => listState.items,
+);
 
-export const selectCompleted = (state) =>
-  state.list.items.filter((item) => item.completed);
+export const selectActive = createSelector(
+  selectAll,
+  (items) => items.filter((item) => !item.completed),
+);
 
-export const selectAllCounter = (state) => selectAll(state).length;
+export const selectCompleted = createSelector(
+  selectAll,
+  (items) => items.filter((item) => item.completed),
+);
 
-export const selectActiveCounter = (state) => selectActive(state).length;
+export const selectAllCounter = createSelector(
+  selectAll,
+  (items) => items.length,
+);
 
-export const selectCompletedCounter = (state) => selectCompleted(state).length;
+export const selectActiveCounter = createSelector(
+  selectActive,
+  (items) => items.length,
+);
 
-export const selectVisibleItems = (state) => {
-  const filter = selectFilter(state);
-  const getItemsMap = {
-    all: () => selectAll(state),
-    active: () => selectActive(state),
-    completed: () => selectCompleted(state),
-  };
-  return getItemsMap[filter]();
-};
+export const selectCompletedCounter = createSelector(
+  selectCompleted,
+  (items) => items.length,
+);
 
-export const selectVisibleItemsCounter = (state) => selectVisibleItems(state).length;
+export const selectVisibleItems = createSelector(
+  selectFilter,
+  selectAll,
+  selectActive,
+  selectCompleted,
+  (filter, all, active, completed) => {
+    const items = {
+      all: all,
+      active: active,
+      completed: completed,
+    };
+
+    return items[filter];
+  },
+);
+
+export const selectVisibleItemsCounter = createSelector(
+  selectVisibleItems,
+  (items) => items.length,
+);
