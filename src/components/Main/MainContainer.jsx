@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import useAction from "../../hooks/useAction";
 import { deleteCompleted } from "../../models/list/actions";
 import { selectFilter } from "../../models/filter/selectors";
 import {
@@ -16,8 +17,7 @@ const MainContainer = () => {
   const activeCount = useSelector(selectActiveCounter);
   const completedCount = useSelector(selectCompletedCounter);
 
-  const dispatch = useDispatch();
-  const handleDeleteCompleted = () => dispatch(deleteCompleted());
+  const handleDeleteCompleted = useAction(deleteCompleted());
 
   return (
     <Main

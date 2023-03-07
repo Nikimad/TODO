@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import useAction from "../../hooks/useAction";
 import {
   deleteItem,
   updateItem,
@@ -10,12 +10,12 @@ import Item from "./Item";
 
 const ItemContainer = ({ item }) => {
   const [value, setValue] = useState(item.text);
-  const dispatch = useDispatch();
 
   const handleChange = (e) => setValue(e.target.value);
-  const handleToggle = () => dispatch(toggleItem(item.id));
-  const handleDelete = () => dispatch(deleteItem(item.id));
-  const handleEdit = () => dispatch(editItem(item.id));
+  const handleToggle = useAction(toggleItem(item.id));
+  const handleDelete = useAction(deleteItem(item.id));
+  const handleEdit = useAction(editItem(item.id));
+  const handleUpdate = useAction(updateItem({ id: item.id, text: value }));
   
   const handleSubmitItem = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const ItemContainer = ({ item }) => {
       handleDelete();
       return;
     }
-    dispatch(updateItem({ id: item.id, text: value }));
+    handleUpdate();
     handleEdit();
   };
 

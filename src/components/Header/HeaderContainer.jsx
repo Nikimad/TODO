@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import useAction from "../../hooks/useAction";
 import { useState } from "react";
 import { toggleTheme } from "../../models/theme/actions";
 import { addItem, toggleAll } from "../../models/list/actions";
@@ -13,9 +14,8 @@ const HeaderContainer = () => {
   const [value, setValue] = useState("");
   const completedCount = useSelector(selectCompletedCounter);
   const activeCount = useSelector(selectActiveCounter);
-  const dispatch = useDispatch();
 
-  const handleToggle = () => dispatch(toggleTheme());
+  const handleToggle = useAction(toggleTheme());
   
   const handleChange = (e) => setValue(e.target.value);
 
@@ -23,10 +23,14 @@ const HeaderContainer = () => {
     e.preventDefault();
   };
 
+  const handleToggleAll = useAction(toggleAll());
+
+  const handleAddItem = useAction(addItem(value));
+
   const handleAddOrToggleAll = (e) => {
     if (!/\S/gm.test(value) && e.type === "blur") return;
-    if (!/\S/gm.test(value)) return dispatch(toggleAll());
-    dispatch(addItem(value));
+    if (!/\S/gm.test(value)) return handleToggleAll();
+    handleAddItem();
     setValue("");
   };
 
