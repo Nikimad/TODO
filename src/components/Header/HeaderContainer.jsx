@@ -13,13 +13,13 @@ import Header from "./Header";
 import throttle from "lodash/throttle";
 
 const HeaderContainer = () => {
-  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const completedCount = useSelector(selectCompletedCounter);
   const activeCount = useSelector(selectActiveCounter);
 
   const handleToggle = useAction(toggleTheme());
-  
-  const handleChange = (e) => setValue(e.target.value);
+
+  const handleInputChange = (e) => setInputValue(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,24 +27,26 @@ const HeaderContainer = () => {
 
   const handleToggleAll = useAction(toggleAll());
 
-  const handleAddItem = useAction(addItem(value));
+  const handleAddItem = useAction(addItem(inputValue));
 
   const handleAddOrToggleAll = (e) => {
-    if (!anyNonWhitespace.test(value) && e.type === "blur") return;
-    if (!anyNonWhitespace.test(value)) return handleToggleAll();
+    if (!anyNonWhitespace.test(inputValue) && e.type === "blur") return;
+    if (!anyNonWhitespace.test(inputValue)) return handleToggleAll();
     handleAddItem();
-    setValue("");
+    setInputValue("");
   };
 
-  const throttledhandleAddOrToggleAll = throttle(handleAddOrToggleAll, 100, { leading: false });
+  const throttledhandleAddOrToggleAll = throttle(handleAddOrToggleAll, 100, {
+    leading: false,
+  });
 
   return (
     <Header
       onToggle={handleToggle}
       onSubmit={handleSubmit}
       onClick={throttledhandleAddOrToggleAll}
-      onChange={handleChange}
-      value={value}
+      onChange={handleInputChange}
+      value={inputValue}
       isCompleted={completedCount > 0 && activeCount === 0}
     />
   );
