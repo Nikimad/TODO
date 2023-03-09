@@ -10,17 +10,17 @@ import Item from "./Item";
 import { anyNonWhitespace } from "../../utils/regexps";
 
 const ItemContainer = ({ item }) => {
-  const [value, setValue] = useState(item.text);
+  const [itemValue, setItemValue] = useState(item.text);
 
-  const handleChange = (e) => setValue(e.target.value);
+  const handleItemChange = (e) => setItemValue(e.target.value);
   const handleToggle = useAction(toggleItem(item.id));
   const handleDelete = useAction(deleteItem(item.id));
   const handleEdit = useAction(editItem(item.id));
-  const handleUpdate = useAction(updateItem({ id: item.id, text: value }));
+  const handleUpdate = useAction(updateItem({ id: item.id, text: itemValue }));
   
   const handleSubmitItem = (e) => {
     e.preventDefault();
-    if (!anyNonWhitespace.test(value)) {
+    if (!anyNonWhitespace.test(itemValue)) {
       handleDelete();
       return;
     }
@@ -33,8 +33,8 @@ const ItemContainer = ({ item }) => {
       onToggle={handleToggle}
       onEdit={handleEdit}
       onDelete={handleDelete}
-      onChange={handleChange}
-      value={value}
+      onChange={handleItemChange}
+      value={itemValue}
       onSubmit={handleSubmitItem}
       {...item}
     />
